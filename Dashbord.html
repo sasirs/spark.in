@@ -5,12 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>HomePage</title>
+
+
         <script src="js/scriptManager.js"></script>
-        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-
-
 
         <!-- <script src="js/scriptManager.js"></script>
         <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -19,6 +16,14 @@
 
         <link href="  https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet"> -->
 
+
+        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+        <script src=" https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+        <link href="  https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+        <script src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.min.js"></script>
 
 
 
@@ -31,7 +36,20 @@
             }
         </style>
         <script>
+            function updateUser(id, formid) {
+                //console.log("Updating user details");
+                var param = getFormValues(formid);
+                console.log(param);
+                var url = "pushEngine/user/update?" + param;
 
+                getRequestTo(url, "POST", function (userData) {
+                    //console.log("response " + userData);
+                    // alert(userData);
+                    if (userData == "saved successfully!") {
+                        document.getElementById("closemodal").click();
+                    }
+                });
+            }
 
         </script>
 
@@ -617,6 +635,130 @@
                                                                 </div>
                                                                 <span class="badge rounded-pill badge-primary">1 sec ago</span>
                                                             </li> -->
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="https://storage.googleapis.com/iexcloud-hl37opg/api/logos/MSFT.png" alt="" style="width: 45px; height: 45px" class="rounded-circle">
+                                                                    <div class="ms-3" style="min-width: 10rem;">
+                                                                        <p class="fw-bold mb-1">MSFT</p>
+                                                                        <p class="text-muted mb-0" style="font-size: 13px;"><span class="stoplossprc">31</span>&nbsp; &nbsp;|<span class="cmpprc ms-1">12</span> &nbsp; &nbsp;|<span class="tagetprc ms-1">42</span></p>
+                                                                    </div>
+                                                                    <span class="badge rounded-pill badge-primary">1 sec ago</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="https://storage.googleapis.com/iexcloud-hl37opg/api/logos/AMZN.png" alt="" style="width: 45px; height: 45px" class="rounded-circle">
+                                                                    <div class="ms-3" style="min-width: 10rem;">
+                                                                        <p class="fw-bold mb-1">AMZN</p>
+                                                                        <p class="text-muted mb-0" style="font-size: 13px;"><span class="stoplossprc">30</span>&nbsp; &nbsp;|<span class="cmpprc ms-1">10</span> &nbsp; &nbsp;|<span class="tagetprc ms-1">40</span></p>
+                                                                    </div>
+                                                                    <span class="badge rounded-pill badge-primary">1 sec ago</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="https://storage.googleapis.com/iexcloud-hl37opg/api/logos/MRNA.png" alt="" style="width: 45px; height: 45px" class="rounded-circle">
+                                                                    <div class="ms-3" style="min-width: 10rem;">
+                                                                        <p class="fw-bold mb-1">MRNA</p>
+                                                                        <p class="text-muted mb-0" style="font-size: 13px;"><span class="stoplossprc">60</span>&nbsp; &nbsp;|<span class="cmpprc ms-1">77</span> &nbsp; &nbsp;|<span class="tagetprc ms-1">90</span></p>
+                                                                    </div>
+                                                                    <span class="badge rounded-pill badge-primary">1 sec ago</span>
+                                                                </div>
+                                                            </li>
+
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="https://storage.googleapis.com/iexcloud-hl37opg/api/logos/AMZN.png" alt="" style="width: 45px; height: 45px" class="rounded-circle">
+                                                                    <div class="ms-3" style="min-width: 10rem;">
+                                                                        <p class="fw-bold mb-1">AMZN</p>
+                                                                        <p class="text-muted mb-0" style="font-size: 13px;"><span class="stoplossprc">31</span>&nbsp; &nbsp;|<span class="cmpprc ms-1">121</span> &nbsp; &nbsp;|<span class="tagetprc ms-1">42</span></p>
+                                                                    </div>
+                                                                    <span class="badge rounded-pill badge-primary">1 sec ago</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="https://storage.googleapis.com/iexcloud-hl37opg/api/logos/WMT.png" alt="" style="width: 45px; height: 45px" class="rounded-circle">
+                                                                    <div class="ms-3" style="min-width: 10rem;">
+                                                                        <p class="fw-bold mb-1">WMT</p>
+                                                                        <p class="text-muted mb-0" style="font-size: 13px;"><span class="stoplossprc">300</span>&nbsp; &nbsp;|<span class="cmpprc ms-1">100</span> &nbsp; &nbsp;|<span class="tagetprc ms-1">400</span></p>
+                                                                    </div>
+                                                                    <span class="badge rounded-pill badge-primary">1 sec ago</span>
+                                                                </div>
+                                                            </li>
+
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="https://storage.googleapis.com/iexcloud-hl37opg/api/logos/TSLA.png" alt="" style="width: 45px; height: 45px" class="rounded-circle">
+                                                                    <div class="ms-3" style="min-width: 10rem;">
+                                                                        <p class="fw-bold mb-1">TSLA</p>
+                                                                        <p class="text-muted mb-0" style="font-size: 13px;"><span class="stoplossprc">12</span>&nbsp; &nbsp;|<span class="cmpprc ms-1">12</span> &nbsp; &nbsp;|<span class="tagetprc ms-1">12</span></p>
+                                                                    </div>
+                                                                    <span class="badge rounded-pill badge-primary">1 sec ago</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="https://storage.googleapis.com/iexcloud-hl37opg/api/logos/MSFT.png" alt="" style="width: 45px; height: 45px" class="rounded-circle">
+                                                                    <div class="ms-3" style="min-width: 10rem;">
+                                                                        <p class="fw-bold mb-1">MSFT</p>
+                                                                        <p class="text-muted mb-0" style="font-size: 13px;"><span class="stoplossprc">31</span>&nbsp; &nbsp;|<span class="cmpprc ms-1">12</span> &nbsp; &nbsp;|<span class="tagetprc ms-1">42</span></p>
+                                                                    </div>
+                                                                    <span class="badge rounded-pill badge-primary">1 sec ago</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="https://storage.googleapis.com/iexcloud-hl37opg/api/logos/AMZN.png" alt="" style="width: 45px; height: 45px" class="rounded-circle">
+                                                                    <div class="ms-3" style="min-width: 10rem;">
+                                                                        <p class="fw-bold mb-1">AMZN</p>
+                                                                        <p class="text-muted mb-0" style="font-size: 13px;"><span class="stoplossprc">30</span>&nbsp; &nbsp;|<span class="cmpprc ms-1">10</span> &nbsp; &nbsp;|<span class="tagetprc ms-1">40</span></p>
+                                                                    </div>
+                                                                    <span class="badge rounded-pill badge-primary">1 sec ago</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="https://storage.googleapis.com/iexcloud-hl37opg/api/logos/MRNA.png" alt="" style="width: 45px; height: 45px" class="rounded-circle">
+                                                                    <div class="ms-3" style="min-width: 10rem;">
+                                                                        <p class="fw-bold mb-1">MRNA</p>
+                                                                        <p class="text-muted mb-0" style="font-size: 13px;"><span class="stoplossprc">60</span>&nbsp; &nbsp;|<span class="cmpprc ms-1">77</span> &nbsp; &nbsp;|<span class="tagetprc ms-1">90</span></p>
+                                                                    </div>
+                                                                    <span class="badge rounded-pill badge-primary">1 sec ago</span>
+                                                                </div>
+                                                            </li>
+
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="https://storage.googleapis.com/iexcloud-hl37opg/api/logos/AMZN.png" alt="" style="width: 45px; height: 45px" class="rounded-circle">
+                                                                    <div class="ms-3" style="min-width: 10rem;">
+                                                                        <p class="fw-bold mb-1">AMZN</p>
+                                                                        <p class="text-muted mb-0" style="font-size: 13px;"><span class="stoplossprc">31</span>&nbsp; &nbsp;|<span class="cmpprc ms-1">121</span> &nbsp; &nbsp;|<span class="tagetprc ms-1">42</span></p>
+                                                                    </div>
+                                                                    <span class="badge rounded-pill badge-primary">1 sec ago</span>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="https://storage.googleapis.com/iexcloud-hl37opg/api/logos/WMT.png" alt="" style="width: 45px; height: 45px" class="rounded-circle">
+                                                                    <div class="ms-3" style="min-width: 10rem;">
+                                                                        <p class="fw-bold mb-1">WMT</p>
+                                                                        <p class="text-muted mb-0" style="font-size: 13px;"><span class="stoplossprc">300</span>&nbsp; &nbsp;|<span class="cmpprc ms-1">100</span> &nbsp; &nbsp;|<span class="tagetprc ms-1">400</span></p>
+                                                                    </div>
+                                                                    <span class="badge rounded-pill badge-primary">1 sec ago</span>
+                                                                </div>
+                                                            </li>
+
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="https://storage.googleapis.com/iexcloud-hl37opg/api/logos/TSLA.png" alt="" style="width: 45px; height: 45px" class="rounded-circle">
+                                                                    <div class="ms-3" style="min-width: 10rem;">
+                                                                        <p class="fw-bold mb-1">TSLA</p>
+                                                                        <p class="text-muted mb-0" style="font-size: 13px;"><span class="stoplossprc">12</span>&nbsp; &nbsp;|<span class="cmpprc ms-1">12</span> &nbsp; &nbsp;|<span class="tagetprc ms-1">12</span></p>
+                                                                    </div>
+                                                                    <span class="badge rounded-pill badge-primary">1 sec ago</span>
+                                                                </div>
+                                                            </li>
 
 
                                                             <!--
@@ -642,7 +784,7 @@
                                                                 </div>
                                                                 <div class="callprice mt-2"><span class="stoplossprc">19,674.25</span>&nbsp; &nbsp;| <span class="cmpprc ms-1">19,674.25</span>&nbsp; &nbsp;|<span class="tagetprc ms-1">19,674.25</span></div>
                                                             </a>
-                                                             <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                                                            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                                                                 <div class="d-flex w-100 justify-content-between">
                                                                     <div class="heading2 mb-1">Canara Bank</div>
                                                                     <small>1 sec ago</small>
@@ -1197,26 +1339,6 @@
                 </div> -->
             </div>
 
-            <button type="button" class="btn btn-primary" id="valmodalbtn" data-bs-toggle="modal" style="display: none" data-bs-target="#validationalert">
-                Launch demo modal
-            </button>
-
-            <div class="modal fade" id="validationalert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-center">
-                    <div class="modal-content">
-                        <div class="modal-body text-center">
-                            <div id="warnimg" class="d-flex justify-content-center">
-                                <img src="./images/Done.gif" width="60%" height="50%" alt="">
-                            </div>
-                            <p id="toastbody" style="font-weight: 600; font-size: 20px;" class="d-flex justify-content-center text-muted">Saved successfully!</p>
-                        </div>
-                        <div class="modal-footert d-flex justify-content-center">
-                            <button type="button" id="valokbtn" class="btn btn-rounded btn-primary w-25 mb-3 me-3" data-bs-dismiss="modal">Okay</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- End Alerts -->
 
 
@@ -1342,30 +1464,48 @@
                 // document.getElementById("tooglebtn").click();
 
 
+                $('#nav-contact-tab').on('click', function () {
+                    //findAllReport('#reporttable', "pushEngine/calls/findAll");
+                });
+
+                $('#nav-investments-tab').on('click', function () {
+                    //findAllInvestment('#invtable', "pushEngine/investment/findAll");
+                });
+
+                $('#invsubmit').on('click', function () {
+                    //saveInv('invform');
+                    //findAllInvestemt('#invfomr', "pushEngine/investment/findAll");
+                });
+
+                document.getElementById('nav-porfolio-tab').addEventListener("click", function () {
+                    // findAllInvestment('#invtable', "pushEngine/investment/findAll");
+                    // loadInvestChart();
+                })
 
                 // static To load the topgainers
                 const topGainersData = [
-                    { id: 'topgainers1', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/TAL.png', symbol: 'NYSE:TAL' },
-                    { id: 'topgainers2', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:VIST' },
-                    { id: 'topgainers3', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/PSNY.png', symbol: 'NASDAQ:PSNY' },
-                    { id: 'topgainers4', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:IONQ' },
-                    { id: 'topgainers5', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:IONQ' },
-                    { id: 'topgainers6', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:IONQ' },
-                    { id: 'topgainers7', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:IONQ' },
-                    { id: 'topgainers8', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:IONQ' }
+                    { "id": "topgainers1", "logo": "https://storage.googleapis.com/iexcloud-hl37opg/api/logos/placeholder.png", "symbol": "NASDAQ:ATGL" },
+                    { "id": "topgainers2", "logo": "https://storage.googleapis.com/iexcloud-hl37opg/api/logos/placeholder.png", "symbol": "NASDAQ:AIRE" },
+                    { "id": "topgainers3", "logo": "https://storage.googleapis.com/iexcloud-hl37opg/api/logos/SONO.png", "symbol": "NASDAQ:SONO" },
+                    { "id": "topgainers4", "logo": "https://storage.googleapis.com/iexcloud-hl37opg/api/logos/XERS.png", "symbol": "NASDAQ:XERS" },
+                    { "id": "topgainers5", "logo": "https://storage.googleapis.com/iexcloud-hl37opg/api/logos/placeholder.png", "symbol": "NASDAQ:WBUY" },
+                    { "id": "topgainers6", "logo": "https://storage.googleapis.com/iexcloud-hl37opg/api/logos/placeholder.png", "symbol": "NASDAQ:GYRE" },
+                    { "id": 'topgainers7', "logo": 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/TAL.png', "symbol": 'NYSE:TAL' },
+                    { "id": 'topgainers8', "logo": 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', "symbol": 'NYSE:IONQ' }
+
                 ];
 
 
-                const topLossersData = [
-                    { id: 'toplossers1', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/TAL.png', symbol: 'NYSE:TAL' },
-                    { id: 'toplossers2', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:VIST' },
-                    { id: 'toplossers3', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/PSNY.png', symbol: 'NASDAQ:PSNY' },
-                    { id: 'toplossers4', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:IONQ' },
-                    { id: 'toplossers5', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:IONQ' },
-                    { id: 'toplossers6', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:IONQ' },
-                    { id: 'toplossers7', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:IONQ' },
-                    { id: 'toplossers8', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:IONQ' },
-                ];
+                const topLossersData = [{ "id": "toplossers1", "logo": "https://storage.googleapis.com/iexcloud-hl37opg/api/logos/PLCE.png", "symbol": "NASDAQ:PLCE" }, { "id": "toplossers2", "logo": "https://storage.googleapis.com/iexcloud-hl37opg/api/logos/GAMB.png", "symbol": "NASDAQ:GAMB" }, { "id": "toplossers3", "logo": "https://storage.googleapis.com/iexcloud-hl37opg/api/logos/MAXN.png", "symbol": "NASDAQ:MAXN" }, { "id": "toplossers4", "logo": "https://storage.googleapis.com/iexcloud-hl37opg/api/logos/LAZR.png", "symbol": "NASDAQ:LAZR" }, { "id": "toplossers5", "logo": "https://storage.googleapis.com/iexcloud-hl37opg/api/logos/ISPR.png", "symbol": "NASDAQ:ISPR" }, { "id": "toplossers6", "logo": "https://storage.googleapis.com/iexcloud-hl37opg/api/logos/CSCO.png", "symbol": "NASDAQ:CSCO" }, { "id": "toplossers7", "logo": "https://storage.googleapis.com/iexcloud-hl37opg/api/logos/PROK.png", "symbol": "NASDAQ:PROK" }]
+                //     { id: 'toplossers1', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/TAL.png', symbol: 'NYSE:TAL' },
+                //     { id: 'toplossers2', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:VIST' },
+                //     { id: 'toplossers3', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/PSNY.png', symbol: 'NASDAQ:PSNY' },
+                //     { id: 'toplossers4', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:IONQ' },
+                //     { id: 'toplossers5', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:IONQ' },
+                //     { id: 'toplossers6', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:IONQ' },
+                //     { id: 'toplossers7', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:IONQ' },
+                //     { id: 'toplossers8', logo: 'https://storage.googleapis.com/iexcloud-hl37opg/api/logos/VIST.png', symbol: 'NYSE:IONQ' },
+                //];
 
                 const indeces = [
                     { id: 'index1', symbol: 'NASDAQ:IXIC' },
@@ -1402,7 +1542,7 @@
                 //     { name: "NASDAQ:AMZN", displayName: "Amazon" },
                 // ];
 
-                var topperformance = [{ "name": "NASDAQ:AAPL", "displayName": "Apple Inc" }, { "name": "NASDAQ:DKNG", "displayName": "DraftKings Inc." }, { "name": "NASDAQ:TLT", "displayName": "BlackRock Institutional Trust Company N.A." }]
+                var topperformance = [{ "name": "NASDAQ:APLM", "displayName": "Apollomics Inc" }, { "name": "NASDAQ:CSCO", "displayName": "Cisco Systems, Inc." }, { "name": "NASDAQ:INTC", "displayName": "Intel Corp." }, { "name": "NASDAQ:AMZN", "displayName": "Amazon.com Inc." }];
 
                 //indices
                 indeces.forEach(({ id, logo, symbol }) => {
@@ -1413,7 +1553,7 @@
 
 
                 //portfolioPieChart(piedata);
-                if (11 == 1) {
+                if (1 == 1) {
                     topGainersData.forEach(({ id, logo, symbol }) => {
                         loadTopGainersandLossers(id, logo, symbol, topgainerUrl);
                     });
@@ -1432,7 +1572,7 @@
                 }
                 dashbordCallSectorChart(piedata);
                 //loadtopsectors();
-                //portfolioPieChart(piedata);//for portfolio chart
+                portfolioPieChart(piedata);//for portfolio chart
                 recentHistoryChart(racentHistorydata);
             });
         </script>
@@ -1441,6 +1581,33 @@
         <!-- For UI display  -->
         <script>
 
+            document.addEventListener("DOMContentLoaded", function () {
+                document.getElementById("explorelink").click();
+                // Need to to SPARK-18
+                // document.getElementById("updatemodel").click();
+                // loadGroup();
+                // findAllDashbordData('#dashbordtable', "pushEngine/calls/findAll");
+
+                console.log("ready");
+
+
+                const toastTrigger = document.getElementById('liveToastBtn');
+                const toastLiveExample = document.getElementById('liveToast')
+
+                if (toastTrigger) {
+                    console.log("toastTrigger");
+                    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+                    toastTrigger.addEventListener('click', () => {
+                        toastBootstrap.show()
+                    })
+                }
+
+                // for fetching the gainer
+                getGainers();
+                getLoosers();
+                getVolume();
+                getMostActive();
+            });
 
             var tab = 0;
             var exploreid = document.getElementById("explorelink");
@@ -1532,6 +1699,82 @@
                     modalBodyInput.value = recipient;
                 });
             }
+
+            //research handler
+            function publishCall(formid) {
+
+                //console.log(response);
+            }
+
+
+            //report handler
+            function findAllReport(tableid, url) { }
+
+
+            // Investment Handler
+            function saveInv(formid) { }
+
+            function findAllInvestment(tableid, url) { }
+
+            //logout
+            document.getElementById("logoutBtn").addEventListener("click", function () {
+
+            });
+
+            //formmodel
+
+            function loadGroup() {
+
+            }
+
+            // select
+            const nameSelects = document.querySelectorAll('.groupSelect');
+            function populateSelectBoxes(data) {
+
+            }
+
+            //dashbord table
+            //var userData;
+            function findAllDashbordData(tableid, urls) { }
+
+
+            //stock all calls
+            function findAllCallsData(userData) { }
+
+            //Call Alert
+
+            function findCallAlert() { }
+            // setInterval(findCallAlert, 1000);
+
+
+
+
+            //common
+
+            function getRequestTo(url, requestType, callback) { }
+
+
+            function getGainers() {
+
+            }
+
+            function getLoosers() {
+            }
+
+            function getMostActive() {
+
+            }
+            function getVolume() {
+
+            }
+
+            //for portflio graph
+
+
+            function loadInvestChart() {
+
+            }
+
 
         </script>
 

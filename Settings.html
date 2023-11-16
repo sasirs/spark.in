@@ -6,10 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="js/scriptManager.js"></script>
         <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-        <script src=" https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-
-        <link href="  https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     </head>
 
     <body>
@@ -470,34 +466,11 @@
 
             var group = '';
             //for user
-            $(function () {
-                //console.log("ready");
-                $('#v-pills-user-tab').on('click', function () { findAll('#usertable', "pushEngine/user/findAll") });
-                $('#v-pills-researcher-tab').on('click', function () { findAll('#researchtable', "pushEngine/user/findAllResearcher") });
-                $('#v-pills-group-tab').on('click', function () { findAllGroup('#grouptable', "pushEngine/group/findAll") });
 
-                // $.ajax({
-                //     type: "POST",
-                //     url: "getSession",
-                //     success: function (data) {
-                //         console.log(data);
-                //     },
-                //     error: function (xhr, status, error) {
-                //         console.error("AJAX request failed:", status, error);
-                //     }
-                // });
-            });
 
             function findById() {
                 //console.log("findUserByEmail");
-                var url = "pushEngine/user/findById?id=spk0002&res=json";
-                getRequestTo(url, "POST", function (userData) {
-                    //console.log(userData);
-                    assignUserValues(userData)
 
-
-                    //resetForm("adduserformid");
-                });
             }
 
             function assignUserValues(response) {
@@ -515,108 +488,22 @@
             }
 
             function findAll(tableid, urls) {
-                var url = urls;
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    dataType: "json",
-                    success: function (userData) {
-                        if ($.fn.DataTable.isDataTable(tableid)) {
-                            $(tableid).DataTable().destroy();
-                        }
-                        $(tableid).DataTable({
-                            data: userData,
-                            columns: [
-                                { data: 'id' },
-                                { data: 'name' },
-                                { data: 'group' },
-                                { data: 'email' },
-                                { data: 'mobile' }
-                            ]
-                        });
-                    },
-                    error: function (xhr, status, error) {
-                        document.getElementById("toastbody").click();
-                        toogleAlert("Something went wrong!", 0);
-                        //console.error("AJAX request failed:", status, error);
-                    }
-                });
+
             }
 
 
             function findAllGroup(tableid, urls) {
-                var url = urls;
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    dataType: "json",
-                    success: function (userData) {
-                        if ($.fn.DataTable.isDataTable(tableid)) {
-                            $(tableid).DataTable().destroy();
-                        }
-                        $(tableid).DataTable({
-                            data: userData,
-                            columns: [
-                                { data: 'id' },
-                                { data: 'name' },
-                                { data: 'researchers' },
-                                { data: 'researchers' },
-                                { data: 'users_count' }
-                            ]
-                        });
-                    },
-                    error: function (xhr, status, error) {
-                        document.getElementById("toastbody").click();
-                        toogleAlert("Something went wrong!", 0);
-                        //console.error("AJAX request failed:", status, error);
-                    }
-                });
+
             }
 
 
             //change password
             function updatePassword(formid) {
-                //console.log("password change");
 
-                if (document.getElementById('newPassword2').value != document.getElementById('newPassword').value) {
-                    alert("Not match");
-                    return null;
-                }
-
-                var param = getFormValues(formid);
-                //console.log("param " + param);
-
-                if (param != null) {
-                    var url = "loginHandler/password/change?" + param;
-                    getRequestTo(url, "POST", function (userData) {
-                        alert(userData);
-                        resetForm("adduserformid");
-                    });
-                }
             }
 
             function addUser(val, formid) {
-                loadGroup();
-                if (val === "adduserbtn") {
-                    resetForm("adduserformid");
-                    document.getElementById("adduserform").style.display = "";
-                    document.getElementById("addusertable").style.display = "none";
-                    document.getElementById("canceluserbtn").style.display = "";
 
-                    document.getElementById("adduserbtn").style.display = "none";
-                    document.getElementById("adduser2btn").style.display = "";
-                } else {
-                    var param = getFormValues(formid);
-                    if (param != null) {
-                        var url = "pushEngine/user/insert?" + param;
-                        getRequestTo(url, "POST", function (userData) {
-                            document.getElementById("toastbody2").innerHTML = userData;
-                            document.getElementById("liveToastBtn").click();
-                            document.getElementById("focus").focus();
-                        });
-
-                    }
-                }
             }
             function cancelUser() {
                 document.getElementById("adduserbtn").style.display = "";
@@ -624,32 +511,11 @@
                 document.getElementById("adduserform").style.display = "none";
                 document.getElementById("addusertable").style.display = "";
                 document.getElementById("canceluserbtn").style.display = "none";
-                findAll('#usertable', "pushEngine/user/findAll");
             }
 
             function addResearcher(val, formid) {
-                loadGroup();
-                if (val === "addresearchbtn") {
-                    resetForm("addresearcherformid");
-                    document.getElementById("addresearchform").style.display = "";
-                    document.getElementById("addresearchtable").style.display = "none";
-                    document.getElementById("cancelresearchbtn").style.display = "";
 
-                    document.getElementById("addresearchbtn").style.display = "none";
-                    document.getElementById("addresearch2btn").style.display = "";
-                } else {
-                    var param = getFormValues(formid);
-                    //console.log("param " + param);
-                    if (param != null) {
-                        var url = "pushEngine/user/insert?" + param;
-                        getRequestTo(url, "POST", function (userData) {
-                            document.getElementById("toastbody2").innerHTML = userData;
-                            document.getElementById("liveToastBtn").click();
-                            document.getElementById("focus").focus();
-                        });
-                    }
 
-                }
             }
             function cancelResearch() {
                 document.getElementById("addresearchbtn").style.display = "";
@@ -657,7 +523,6 @@
                 document.getElementById("addresearchform").style.display = "none";
                 document.getElementById("addresearchtable").style.display = "";
                 document.getElementById("cancelresearchbtn").style.display = "none";
-                findAll('#researchtable', "pushEngine/user/findAllResearcher")
             }
 
 
@@ -665,28 +530,7 @@
             //for group
 
             function addGroup(val, formid) {
-                loadGroup();
-                if (val === "addgroupbtn") {
-                    resetForm("addgroupformid");
-                    document.getElementById("addgroupform").style.display = "";
-                    document.getElementById("addgrouptable").style.display = "none";
-                    document.getElementById("cancelgroupbtn").style.display = "";
 
-                    document.getElementById("addgroupbtn").style.display = "none";
-                    document.getElementById("addgroup2btn").style.display = "";
-                } else {
-                    var param = getFormValues(formid);
-                    //console.log("param " + param);
-                    if (param != null) {
-                        var url = "pushEngine/user/insert?" + param;
-                        getRequestTo(url, "POST", function (userData) {
-                            document.getElementById("toastbody2").innerHTML = userData;
-                            document.getElementById("liveToastBtn").click();
-                            document.getElementById("focus").focus();
-                        });
-                    }
-
-                }
             }
             function cancelResearch() {
                 document.getElementById("addgroupbtn").style.display = "";
@@ -694,7 +538,6 @@
                 document.getElementById("addgroupform").style.display = "none";
                 document.getElementById("addgrouptable").style.display = "";
                 document.getElementById("cancelgroupbtn").style.display = "none";
-                findAll('#grouptable', "pushEngine/user/findAllResearcher")
             }
 
 
@@ -721,30 +564,7 @@
 
 
             function loadGroup() {
-                var url = "pushEngine/group/findAll";
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    dataType: "json",
-                    success: function (userData) {
-                        populateSelectBoxes(userData);
-                    }
-                });
-            }
 
-            // select
-            const nameSelects = document.querySelectorAll('.groupSelect');
-            function populateSelectBoxes(data) {
-                nameSelects.forEach((select, index) => {
-                    const placeholder = `Select a Group (${index + 1})`;
-                    select.innerHTML = `<option value="">${placeholder}</option>`;
-                    data.forEach(item => {
-                        const option = document.createElement('option');
-                        option.value = item.name;
-                        option.textContent = item.name;
-                        select.appendChild(option);
-                    });
-                });
             }
 
 
