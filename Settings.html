@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/scriptManager.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+        <script src=" https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+        <link href="  https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- modal -->
+                <button type="button" class="btn btn-primary" id="liveToastBtn" style="display: none;"></button>
+                <div class="toast-container position-fixed top-0 end-0 p-3">
+                    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <i class="fas fa-square text-primary pe-3"></i>
+                            <strong class="me-auto">Alert</strong>
+                            <small>1 sec ago</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body  text-center mt-2">
+                            <i class="" id="alertIcon" style="font-size: 3rem;"></i>
+                            <p class="toastbody heading2 mt-3" id="toastbody2"></p>
+                            <input class="heading2 mt-3" id="focus" type="hidden"></input>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"></div>
+                <div class="row m-3">
+                    <div class="col-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- Tab navs -->
+                                <div class="nav flex-column nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                    <div class="picture">
+                                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="82" width="80" alt="Avatar" loading="lazy" />
+                                    </div>
+
+                                    <div class="profile mt-4">
+                                        <p class="heading">Sasikumar</p>
+                                    </div>
+                                    <a class="nav-link active" id="v-pills-home-tab" data-mdb-toggle="pill" href="#v-pills-details" role="tab" aria-controls="v-pills-details" aria-selected="true">Basic Details</a>
+                                    <a class="nav-link" id="v-pills-password-tab" data-mdb-toggle="pill" href="#v-pills-password" role="tab" aria-controls="v-pills-password" aria-selected="false">Change Password</a>
+                                    <a class="nav-link" onclick="" id="v-pills-user-tab" data-mdb-toggle="pill" href="#v-pills-user" role="tab" aria-controls="v-pills-user" aria-selected="false">Users</a>
+                                    <a class="nav-link" id="v-pills-researcher-tab" data-mdb-toggle="pill" href="#v-pills-researcher" role="tab" aria-controls="v-pills-researcher" aria-selected="false">Researchers</a>
+                                    <a class="nav-link" id="v-pills-group-tab" data-mdb-toggle="pill" href="#v-pills-group" role="tab" aria-controls="v-pills-group" aria-selected="false">Groups</a>
+                                </div>
+                                <!-- Tab navs -->
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-9">
+                        <div class="card settingcard">
+                            <div class="card-body">
+                                <!-- Tab content -->
+                                <div class="tab-content" id="v-pills-tabContent">
+                                    <!-- profilediv -->
+                                    <div class="tab-pane fade show active" id="v-pills-details" role="tabpanel" aria-labelledby="v-pills-details-tab">
+                                        <div class="form profilediv">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <fieldset>
+                                                            <label for="exampleFormControlInput1" class="form-label">NAME</label>
+                                                            <input type="text" class="form-control" id="pname" placeholder="No value found" value="" readonly>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">PAN</label>
+                                                        <input type="text" class="form-control" id="ppan" placeholder="No value found" value="" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">DATE OF BIRTH</label>
+                                                        <input type="date" class="form-control" id="pdob" placeholder="No value found" value="" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">GENDER</label>
+                                                        <input type="text" class="form-control" id="pgender" placeholder="" value="" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">MOBILE NUMBER</label>
+                                                        <input type="number" class="form-control" id="pmobile" placeholder="No value found" value="" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">MARITAL STATUS</label>
+                                                        <input type="text" class="form-control" id="pmstatus" placeholder="" value="" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">EMAIL</label>
+                                                        <input type="email" class="form-control" id="pemail" placeholder="No value found" value="" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">UNIQE CODE</label>
+                                                        <input type="text" class="form-control" id="pcode" placeholder="No value found" value="" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- password reset -->
+                                    <div class="tab-pane fade" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
+                                        <form class="form" id="changepassform">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="mb-5">
+                                                        <label for="exampleFormControlInput1" class="form-label">NEW PASSWORD</label>
+                                                        <input type="password" class="form-control" id="" name="currentPassword" placeholder="currentPassword" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="mb-5">
+                                                        <label for="exampleFormControlInput1" class="form-label">CONFIRM PASSWORD</label>
+                                                        <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="Password" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">RE ENTER CONFIRM PASSWORD</label>
+                                                        <input type="password" class="form-control" id="newPassword2" placeholder="Password" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <input type="hidden" class="form-control" id="email" name="email" placeholder="" value="admin@gmail.com">
+                                                <div class="col-md-4 d-flex justify-content-start">
+                                                    <button type="button" id="changepass" onclick="updatePassword('changepassform')" class="btn btn-primary btn-block mb-3">Update Password</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <!-- form and table research -->
+                                    <div class="tab-pane fade" id="v-pills-researcher" role=" tabpanel" aria-labelledby="v-pills-researcher-tab">
+                                        <div class="row" id="addresearchtable" style="min-height: 20rem;max-height: 20rem;overflow: auto; display: '';">
+                                            <div class="col-md-12 ">
+                                                <table class="table table-striped" style="width:100%" id="researchtable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Reseach Code</th>
+                                                            <th scope="col">Name</th>
+                                                            <th scope="col">Group</th>
+                                                            <th scope="col">Email</th>
+                                                            <th scope="col">Mobile Number</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                        <!-- addresearchform -->
+                                        <div class="row" id="addresearchform" style="display: none;">
+                                            <form class="form" id="addresearcherformid">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">NAME</label>
+                                                            <input type="text" class="form-control" id="name" name="name" placeholder="Name of Researcher" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">PAN</label>
+                                                            <input type="text" class="form-control" id="pan" name="pan" placeholder="Pan Number" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">DATE OF BIRTH</label>
+                                                            <input type="date" class="form-control" id="dob" name="dob" placeholder="Date of Birth" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">GENDER</label>
+                                                            <select class="form-select" id="gender" name="gender" aria-label="Default select example">
+                                                                <option value="1" selected>Male</option>
+                                                                <option value="2">Femal</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">MOBILE NUMBER</label>
+                                                            <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">MARITAL STATUS</label>
+                                                            <select class="form-select" aria-label="Default select example" id="mstatus" name="mstatus">
+                                                                <option value="1">Married</option>
+                                                                <option value="2" selected>Unmarried</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">EMAIL</label>
+                                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="">
+                                                            <input type="hidden" class="form-control" name="roles" id="roles" placeholder="" value="researcher">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">Group</label>
+                                                            <!-- <input type="text" class="form-control" id="group" name="group" placeholder="Group Name" value=""> -->
+                                                            <select class="form-select groupSelect" aria-label="Default select example" name="group" id="group">
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class=" row mt-3">
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                        <button class="btn btn-primary me-md-2" type="button" id="addresearch2btn" onclick="addResearcher(this.id,'addresearcherformid')" style="display: none;">Add Researcher</button>
+                                                        <button class="btn btn-outline-primary" type="button" id="cancelresearchbtn" onclick="cancelResearch()" style="display: none;">Cencel</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                <button class="btn btn-primary me-md-2" type="button" id="addresearchbtn" onclick="addResearcher(this.id,'')" style="display: '';">New Researcher</button>
+                                                <!-- <button class="btn btn-primary me-md-2" type="button" id="addresearchbtn" onclick="addResearch(this.id)" style="display: '';">New Researcher</button>
+                                                    <button class="btn btn-primary me-md-2" type="button" id="addresearch2btn" onclick="addResearch(this.is)" style="display: none;">Add Researcher</button>
+                                                    <button class="btn btn-outline-primary" type="button" id="cancelresearchbtn" onclick="cancelResearch()" style="display: none;">Cencel</button> -->
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- form and table group -->
+                                    <div class="tab-pane fade" id="v-pills-group" role=" tabpanel" aria-labelledby="v-pills-group-tab">
+                                        <div class="row" id="addgrouptable" style="min-height: 20rem;max-height: 20rem;overflow: auto; display: '';">
+                                            <div class="col-md-12 ">
+                                                <table class="table table-striped" style="width:100%" id="grouptable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Group Code</th>
+                                                            <th scope="col">Name</th>
+                                                            <th scope="col">Researcher</th>
+                                                            <th scope="col">Researcher Code</th>
+                                                            <th scope="col">User Count</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                        <!-- addgroupform -->
+                                        <div class="row" id="addgroupform" style="display: none;">
+                                            <form class="form" id="addgroupformid">
+
+                                                <div class="row mt-3">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">Assign Researcher</label>
+                                                            <!-- <input type="text" class="form-control" id="group" name="group" placeholder="Group Name" value=""> -->
+                                                            <select class="form-select groupSelect" aria-label="Default select example" name="researcher" id="researcher">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">Researcher Code</label>
+                                                            <input type="number" class="form-control" id="researchers_code" name="researchers_code" placeholder="Please Enter researcher code" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class=" row mt-3">
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                        <button class="btn btn-primary me-md-2" type="button" id="addgroup2btn" onclick="addGroup(this.id,'addgroupformid')" style="display: none;">Add Group</button>
+                                                        <button class="btn btn-outline-primary" type="button" id="cancelgroupbtn" onclick="cancelGroup()" style="display: none;">Cencel</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                <button class="btn btn-primary me-md-2" type="button" id="addgroupbtn" onclick="addGroup(this.id,'')" style="display: '';">New Group</button>
+                                                <!-- <button class="btn btn-primary me-md-2" type="button" id="addresearchbtn" onclick="addResearch(this.id)" style="display: '';">New Researcher</button>
+                                                                                        <button class="btn btn-primary me-md-2" type="button" id="addresearch2btn" onclick="addResearch(this.is)" style="display: none;">Add Researcher</button>
+                                                                                        <button class="btn btn-outline-primary" type="button" id="cancelresearchbtn" onclick="cancelResearch()" style="display: none;">Cencel</button> -->
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+
+
+                                    <!-- form and table user-->
+                                    <div class="tab-pane fade" id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab">
+                                        <div class="row" id="addusertable" style="min-height: 20rem;max-height: 20rem;overflow: auto; display: '';">
+                                            <div class="col-md-12 ">
+                                                <table id="usertable" class="table table-striped" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">User Code</th>
+                                                            <th scope="col">Name</th>
+                                                            <th scope="col">Group</th>
+                                                            <th scope="col">Email</th>
+                                                            <th scope="col">Mobile Number</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="adduserform" style="display: none;">
+                                            <form class="form" id="adduserformid" action="pushEngine/user/insert" method="POST">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <fieldset>
+                                                                <!-- <legend>NAME</legend> -->
+                                                                <label for="exampleFormControlInput1" class="form-label">NAME</label>
+                                                                <input type="text" class="form-control" name="name" id="name" placeholder="Name of User" value="">
+                                                            </fieldset>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">PAN</label>
+                                                            <input type="text" class="form-control" name="pan" id="pan" placeholder="Pan Number" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">DATE OF BIRTH</label>
+                                                            <input type="date" class="form-control" name="dob" id="dob" placeholder="Date of Birth" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">GENDER</label>
+                                                            <select class="form-select" aria-label="Default select example" name="gender" id="gender">
+                                                                <option value="Male" selected>Male</option>
+                                                                <option value="Femal">Femal</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">MOBILE NUMBER</label>
+                                                            <input type="number" class="form-control" name="mobile" id="mobile" placeholder="Mobile Number" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">MARITAL STATUS</label>
+                                                            <select class="form-select" aria-label="Default select example" name="mstatus" id="mstatus">
+                                                                <option value="Married">Married</option>
+                                                                <option value="Unmarried" selected>Unmarried</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">EMAIL</label>
+                                                            <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="exampleFormControlInput1" class="form-label">Group</label>
+                                                            <select class="form-select groupSelect" aria-label="Default select example" name="group" id="group">
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <input type="hidden" class="form-control" name="roles" id="roles" placeholder="" value="user">
+                                                </div>
+                                                <div class=" row mt-3">
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                        <button class="btn btn-primary me-md-2" type="button" id="adduser2btn" onclick="addUser(this.id,'adduserformid')" style="display: none;">Add User</button>
+                                                        <button class="btn btn-outline-primary" type="button" id="canceluserbtn" onclick="cancelUser()" style="display: none;">Cencel</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class=" row mt-3">
+                                            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                <button class="btn btn-primary me-md-2" type="button" id="adduserbtn" onclick="addUser(this.id,'')" style="display: '';">New User</button>
+                                                <!-- <button class="btn btn-primary me-md-2" type="Submit" id="adduser2btn" onclick="addUser(this.id)" style="display: none;">Add User</button>
+                                                                <button class="btn btn-outline-primary" type="button" id="canceluserbtn" onclick="cancelUser()" style="display: none;">Cencel</button> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script>
+
+            //alert
+            const toastTrigger = document.getElementById("liveToastBtn");
+            const toastLiveExample = document.getElementById("liveToast");
+
+            if (toastTrigger) {
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+                toastTrigger.addEventListener("click", () => {
+                    toastBootstrap.show();
+                });
+            }
+
+            var group = '';
+            //for user
+            $(function () {
+                //console.log("ready");
+                $('#v-pills-user-tab').on('click', function () { findAll('#usertable', "pushEngine/user/findAll") });
+                $('#v-pills-researcher-tab').on('click', function () { findAll('#researchtable', "pushEngine/user/findAllResearcher") });
+                $('#v-pills-group-tab').on('click', function () { findAllGroup('#grouptable', "pushEngine/group/findAll") });
+
+                // $.ajax({
+                //     type: "POST",
+                //     url: "getSession",
+                //     success: function (data) {
+                //         console.log(data);
+                //     },
+                //     error: function (xhr, status, error) {
+                //         console.error("AJAX request failed:", status, error);
+                //     }
+                // });
+            });
+
+            function findById() {
+                //console.log("findUserByEmail");
+                var url = "pushEngine/user/findById?id=spk0002&res=json";
+                getRequestTo(url, "POST", function (userData) {
+                    //console.log(userData);
+                    assignUserValues(userData)
+
+
+                    //resetForm("adduserformid");
+                });
+            }
+
+            function assignUserValues(response) {
+                userData = JSON.parse(response);
+                //console.log("userData.id" + userData.id);
+                document.getElementById("pcode").value = userData.id;
+                document.getElementById("pname").value = userData.name;
+                document.getElementById("ppan").value = userData.pan;
+                document.getElementById("pgender").value = userData.pan;
+                document.getElementById("pmobile").value = userData.mobile;
+                document.getElementById("pdob").value = userData.dob;
+                document.getElementById("pmstatus").value = userData.mstatus;
+                document.getElementById("pemail").value = userData.email;
+
+            }
+
+            function findAll(tableid, urls) {
+                var url = urls;
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    dataType: "json",
+                    success: function (userData) {
+                        if ($.fn.DataTable.isDataTable(tableid)) {
+                            $(tableid).DataTable().destroy();
+                        }
+                        $(tableid).DataTable({
+                            data: userData,
+                            columns: [
+                                { data: 'id' },
+                                { data: 'name' },
+                                { data: 'group' },
+                                { data: 'email' },
+                                { data: 'mobile' }
+                            ]
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        document.getElementById("toastbody").click();
+                        toogleAlert("Something went wrong!", 0);
+                        //console.error("AJAX request failed:", status, error);
+                    }
+                });
+            }
+
+
+            function findAllGroup(tableid, urls) {
+                var url = urls;
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    dataType: "json",
+                    success: function (userData) {
+                        if ($.fn.DataTable.isDataTable(tableid)) {
+                            $(tableid).DataTable().destroy();
+                        }
+                        $(tableid).DataTable({
+                            data: userData,
+                            columns: [
+                                { data: 'id' },
+                                { data: 'name' },
+                                { data: 'researchers' },
+                                { data: 'researchers' },
+                                { data: 'users_count' }
+                            ]
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        document.getElementById("toastbody").click();
+                        toogleAlert("Something went wrong!", 0);
+                        //console.error("AJAX request failed:", status, error);
+                    }
+                });
+            }
+
+
+            //change password
+            function updatePassword(formid) {
+                //console.log("password change");
+
+                if (document.getElementById('newPassword2').value != document.getElementById('newPassword').value) {
+                    alert("Not match");
+                    return null;
+                }
+
+                var param = getFormValues(formid);
+                //console.log("param " + param);
+
+                if (param != null) {
+                    var url = "loginHandler/password/change?" + param;
+                    getRequestTo(url, "POST", function (userData) {
+                        alert(userData);
+                        resetForm("adduserformid");
+                    });
+                }
+            }
+
+            function addUser(val, formid) {
+                loadGroup();
+                if (val === "adduserbtn") {
+                    resetForm("adduserformid");
+                    document.getElementById("adduserform").style.display = "";
+                    document.getElementById("addusertable").style.display = "none";
+                    document.getElementById("canceluserbtn").style.display = "";
+
+                    document.getElementById("adduserbtn").style.display = "none";
+                    document.getElementById("adduser2btn").style.display = "";
+                } else {
+                    var param = getFormValues(formid);
+                    if (param != null) {
+                        var url = "pushEngine/user/insert?" + param;
+                        getRequestTo(url, "POST", function (userData) {
+                            document.getElementById("toastbody2").innerHTML = userData;
+                            document.getElementById("liveToastBtn").click();
+                            document.getElementById("focus").focus();
+                        });
+
+                    }
+                }
+            }
+            function cancelUser() {
+                document.getElementById("adduserbtn").style.display = "";
+                document.getElementById("adduser2btn").style.display = "none";
+                document.getElementById("adduserform").style.display = "none";
+                document.getElementById("addusertable").style.display = "";
+                document.getElementById("canceluserbtn").style.display = "none";
+                findAll('#usertable', "pushEngine/user/findAll");
+            }
+
+            function addResearcher(val, formid) {
+                loadGroup();
+                if (val === "addresearchbtn") {
+                    resetForm("addresearcherformid");
+                    document.getElementById("addresearchform").style.display = "";
+                    document.getElementById("addresearchtable").style.display = "none";
+                    document.getElementById("cancelresearchbtn").style.display = "";
+
+                    document.getElementById("addresearchbtn").style.display = "none";
+                    document.getElementById("addresearch2btn").style.display = "";
+                } else {
+                    var param = getFormValues(formid);
+                    //console.log("param " + param);
+                    if (param != null) {
+                        var url = "pushEngine/user/insert?" + param;
+                        getRequestTo(url, "POST", function (userData) {
+                            document.getElementById("toastbody2").innerHTML = userData;
+                            document.getElementById("liveToastBtn").click();
+                            document.getElementById("focus").focus();
+                        });
+                    }
+
+                }
+            }
+            function cancelResearch() {
+                document.getElementById("addresearchbtn").style.display = "";
+                document.getElementById("addresearch2btn").style.display = "none";
+                document.getElementById("addresearchform").style.display = "none";
+                document.getElementById("addresearchtable").style.display = "";
+                document.getElementById("cancelresearchbtn").style.display = "none";
+                findAll('#researchtable', "pushEngine/user/findAllResearcher")
+            }
+
+
+
+            //for group
+
+            function addGroup(val, formid) {
+                loadGroup();
+                if (val === "addgroupbtn") {
+                    resetForm("addgroupformid");
+                    document.getElementById("addgroupform").style.display = "";
+                    document.getElementById("addgrouptable").style.display = "none";
+                    document.getElementById("cancelgroupbtn").style.display = "";
+
+                    document.getElementById("addgroupbtn").style.display = "none";
+                    document.getElementById("addgroup2btn").style.display = "";
+                } else {
+                    var param = getFormValues(formid);
+                    //console.log("param " + param);
+                    if (param != null) {
+                        var url = "pushEngine/user/insert?" + param;
+                        getRequestTo(url, "POST", function (userData) {
+                            document.getElementById("toastbody2").innerHTML = userData;
+                            document.getElementById("liveToastBtn").click();
+                            document.getElementById("focus").focus();
+                        });
+                    }
+
+                }
+            }
+            function cancelResearch() {
+                document.getElementById("addgroupbtn").style.display = "";
+                document.getElementById("addgroup2btn").style.display = "none";
+                document.getElementById("addgroupform").style.display = "none";
+                document.getElementById("addgrouptable").style.display = "";
+                document.getElementById("cancelgroupbtn").style.display = "none";
+                findAll('#grouptable', "pushEngine/user/findAllResearcher")
+            }
+
+
+
+            function toogleAlert(content, status) {
+                document.getElementById("toastbody2").innerHTML = content;
+                const myIcon = document.getElementById('alertIcon');
+                if (status === 1) {
+                    if (myIcon.classList.contains('far')) {
+                    } else {
+                        myIcon.classList.remove('fas', 'fa-circle-exclamation', 'text-warning');
+                        myIcon.classList.add('far', 'fa-circle-check', 'text-success');
+                    }
+                } else {
+                    if (myIcon.classList.contains('fas')) {
+                    } else {
+                        myIcon.classList.remove('far', 'fa-circle-check', 'text-success');
+                        myIcon.classList.add('fas', 'fa-circle-exclamation', 'text-warning');
+                    }
+                }
+                document.getElementById("liveToastBtn").click();
+                document.getElementById("focus").focus();
+            }
+
+
+            function loadGroup() {
+                var url = "pushEngine/group/findAll";
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    dataType: "json",
+                    success: function (userData) {
+                        populateSelectBoxes(userData);
+                    }
+                });
+            }
+
+            // select
+            const nameSelects = document.querySelectorAll('.groupSelect');
+            function populateSelectBoxes(data) {
+                nameSelects.forEach((select, index) => {
+                    const placeholder = `Select a Group (${index + 1})`;
+                    select.innerHTML = `<option value="">${placeholder}</option>`;
+                    data.forEach(item => {
+                        const option = document.createElement('option');
+                        option.value = item.name;
+                        option.textContent = item.name;
+                        select.appendChild(option);
+                    });
+                });
+            }
+
+
+
+
+        </script>
+    </body>
+
+</html>

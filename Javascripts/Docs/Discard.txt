@@ -1,0 +1,6 @@
+IEX TOKEN : token=sk_c6d395271a1745daad050a6c15c0eed3
+
+
+
+[{"type":"sector","name":"Consumer Discretionary","symbol":"XLY","performance":0.01118,"lastUpdated":1695931200004},{"type":"sector","name":"Communication Services","symbol":"XLC","performance":0.01104,"lastUpdated":1695931200056},{"type":"sector","name":"Materials","symbol":"XLB","performance":0.01079,"lastUpdated":1695931200002},{"type":"sector","name":"Real Estate","symbol":"XLRE","performance":0.01042,"lastUpdated":1695931200076},{"type":"sector","name":"Financials","symbol":"XLF","performance":0.00722,"lastUpdated":1695931200004},{"type":"sector","name":"Technology","symbol":"XLK","performance":0.00709,"lastUpdated":1695931200005},{"type":"sector","name":"Health Care","symbol":"XLV","performance":0.0048,"lastUpdated":1695931200002},{"type":"sector","name":"Industrials","symbol":"XLI","performance":0.00424,"lastUpdated":1695931200005},{"type":"sector","name":"Consumer Staples","symbol":"XLP","performance":0.00305,"lastUpdated":1695931200002},{"type":"sector","name":"Energy","symbol":"XLE","performance":0.00109,"lastUpdated":1695931200004},{"type":"sector","name":"Utilities","symbol":"XLU","performance":-0.02162,"lastUpdated":1695931200003}]
+
