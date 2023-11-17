@@ -18,7 +18,7 @@ document.write('<script src="./Javascripts/package/dist/chart.umd.js"></script>'
 document.write(' <script src="./Javascripts/piechart.js"></script>');
 document.write('<script src="./Javascripts/LoadWidget.js"></script>');
 document.write(' <script src="./js/requestHandler.js"></script>');
-document.write(' <link rel="stylesheet" href="./HomePage.css">');
+document.write(' <link rel="stylesheet" href="./css/HomePage.css">');
 document.write(' <link rel="stylesheet" type="text/css" media="screen" href="./css/autoComplete.css">');
 // document.write('<script src="./js/autoComplete.js"></script>');
 // document.write('<script src="./js/index.js"></script>');
