@@ -26,7 +26,6 @@
         <script src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.min.js"></script>
 
 
-
         <!-- others sample commit check-->
         <style>
             .formstart {
@@ -34,26 +33,6 @@
                 font-size: 5px;
                 transform: translateY(-6px);
             }
-        </style>
-        <script>
-            function updateUser(id, formid) {
-                //console.log("Updating user details");
-                var param = getFormValues(formid);
-                console.log(param);
-                var url = "pushEngine/user/update?" + param;
-
-                getRequestTo(url, "POST", function (userData) {
-                    //console.log("response " + userData);
-                    // alert(userData);
-                    if (userData == "saved successfully!") {
-                        document.getElementById("closemodal").click();
-                    }
-                });
-            }
-
-        </script>
-
-        <style>
         </style>
     </head>
 
@@ -95,10 +74,30 @@
                     <!-- Right elements -->
                     <div class="d-flex align-items-center">
                         <!-- Avatar -->
-                        <a href="" class="me-5">
+                        <!-- <a href="" class="me-5">
                             <i class="fas fa-bell fa-lg"></i>
                             <span class="badge rounded-pill badge-notification bg-danger">12</span>
-                        </a>
+                        </a> -->
+                        <div class="dropdown">
+                            <a class="dropdown-toggle d-flex align-items-center hidden-arrow pe-5" href="#" id="navbarDropdownMenuAvatar1" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-bell fa-lg"></i>
+                                <span class="badge rounded-pill badge-notification bg-danger">12</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end w-100" aria-labelledby="navbarDropdownMenuAvatar1" style="width: 23rem !important;transform: translate3d(-5rem, 15.33333px, 0px) !important;">
+                                <li style=" background: #f8f8f8;">
+                                <li class="py-3 px-3"><span class="badge rounded-pill badge-success">BUY</span> Microsoft Corporation @190 SL100 TGT200</li>
+                                </li>
+                                <li class="py-3 px-3"><span class="badge rounded-pill badge-success">BUY</span> Tesla Inc @100 SL10 TGT150</li>
+                                </li>
+                                <li class="py-3 px-3"><span class="badge rounded-pill badge-danger">SELL</span> Walmart Inc. @190 SL100 TGT200</li>
+                                </li>
+                                <li class="py-3 px-3"><span class="badge rounded-pill badge-danger">SELL</span> Amazon.com Inc @100 50 TGT200</li>
+                                </li>
+                                <li class="py-3 px-3"><span class="badge rounded-pill badge-success">BUY</span> Moderna Inc @600 SL500 TGT700</li>
+                                </li>
+
+                            </ul>
+                        </div>
                         <div class="dropdown">
                             <a class="dropdown-toggle d-flex align-items-center hidden-arrow pe-3" href="#" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                                 <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25" alt="Black and White Portrait of a Man" loading="lazy" />
@@ -1560,9 +1559,356 @@
                     </div>
                 </div> -->
             </div>
-
             <!-- End Alerts -->
 
+            <!-- Home page plaveholder-->
+            <div id="homepageplaceholder" style="display: none;">
+                <div class="row mt-2">
+                    <div class="col-md-8">
+                        <!-- Index loading -->
+                        <div class="row">
+                            <div class="mb-3 card-text placeholder-glow ">
+                                <span class="placeholder rounded col-1"></span>
+                            </div>
+                            <div class="row pb-3">
+                                <div class="col-sm-4 mb-3 mb-sm-0">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 6rem;"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 mb-3 mb-sm-0">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 6rem;"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 mb-3 mb-sm-0">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 6rem;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Top Gainers -->
+                        <div class="row mt-4">
+                            <div class="mb-3 card-text placeholder-glow ">
+                                <span class="placeholder rounded col-2"></span>
+                            </div>
+                            <div class="row pb-3">
+                                <div class="col-sm-3 mb-3 mb-sm-0">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 11rem;"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mb-3 mb-sm-0">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 11rem;"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mb-3 mb-sm-0">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 11rem;"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mb-3 mb-sm-0">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 11rem;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Top Loosers -->
+                        <div class="row mt-4">
+                            <div class="mb-3 card-text placeholder-glow ">
+                                <span class="placeholder rounded col-2"></span>
+                            </div>
+                            <div class="row pb-3">
+                                <div class="col-sm-3 mb-3 mb-sm-0">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 11rem;"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mb-3 mb-sm-0">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 11rem;"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mb-3 mb-sm-0">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 11rem;"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mb-3 mb-sm-0">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 11rem;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Top sector -->
+                        <div class="row mt-5">
+                            <div class="mb-3 card-text placeholder-glow ">
+                                <span class="placeholder rounded col-2"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3 mb-3 mb-sm-0">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 3rem;"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mb-3 mb-sm-0">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 3rem;"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mb-3 mb-sm-0">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 3rem;"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mb-3 mb-sm-0">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 3rem;"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mb-3 mb-sm-0 mt-4">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 3rem;"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mb-3 mb-sm-0  mt-4">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 3rem;"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mb-3 mb-sm-0  mt-4">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 3rem;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Top Volume -->
+                        <div class="row mt-5">
+                            <div class="mb-3 card-text placeholder-glow ">
+                                <span class="placeholder rounded col-2"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 mb-3 mb-sm-0">
+                                    <div class="placeholder-card placeholder-glow">
+                                        <span class="placeholder rounded col-12" style="height: 18rem;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <!-- For Your Calls -->
+                        <div class="row mt-2">
+                            <div class="mb-3 card-text placeholder-glow ">
+                                <span class="placeholder rounded col-2"></span>
+                            </div>
+                            <div class="yourcalls">
+                                <div class="row">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
+                                        <div class="placeholder-card placeholder-glow">
+                                            <div class="card" aria-hidden="true">
+                                                <div class="card-body">
+                                                    <div class="">
+                                                        <div class="card-text placeholder-glow d-flex justify-content-around">
+                                                            <span class="placeholder rounded col-2"></span>
+                                                            <span class="placeholder rounded col-2"></span>
+                                                        </div>
+                                                        <div class=" mt-3 d-flex card-title placeholder-glow d-flex justify-content-around">
+                                                            <span class="placeholder rounded col-5"></span>
+                                                            <span class="placeholder rounded col-5"></span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- For All Calls -->
+                        <div class="row allcalls mt-5" id="allcalls" style="display: '';">
+                            <!-- <p class="heading mt-4">All Calls</p> -->
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="mb-3 card-text placeholder-glow ">
+                                        <span class="placeholder rounded col-12"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3 card-text placeholder-glow ">
+                                        <span class="placeholder rounded col-7"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-1" id="allcallsList" style="display: '';">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="card-text placeholder-glow">
+                                                    <span class="placeholder rounded-circle col-2" style="height: 2rem;"></span>
+                                                    <span class="placeholder rounded col-8 ms-4"></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="card-text placeholder-glow">
+                                                    <span class="placeholder rounded-circle col-2" style="height: 2rem;"></span>
+                                                    <span class="placeholder rounded col-8 ms-4"></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="card-text placeholder-glow">
+                                                    <span class="placeholder rounded-circle col-2" style="height: 2rem;"></span>
+                                                    <span class="placeholder rounded col-8 ms-4"></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="card-text placeholder-glow">
+                                                    <span class="placeholder rounded-circle col-2" style="height: 2rem;"></span>
+                                                    <span class="placeholder rounded col-8 ms-4"></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="card-text placeholder-glow">
+                                                    <span class="placeholder rounded-circle col-2" style="height: 2rem;"></span>
+                                                    <span class="placeholder rounded col-8 ms-4"></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="card-text placeholder-glow">
+                                                    <span class="placeholder rounded-circle col-2" style="height: 2rem;"></span>
+                                                    <span class="placeholder rounded col-8 ms-4"></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="card-text placeholder-glow">
+                                                    <span class="placeholder rounded-circle col-2" style="height: 2rem;"></span>
+                                                    <span class="placeholder rounded col-8 ms-4"></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="card-text placeholder-glow">
+                                                    <span class="placeholder rounded-circle col-2" style="height: 2rem;"></span>
+                                                    <span class="placeholder rounded col-8 ms-4"></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- For market overview -->
+                        <div class="row mt-5" id="MarketOverview">
+                            <div class="col-md-12">
+                                <div class="mb-3 card-text placeholder-glow ">
+                                    <span class="placeholder rounded col-3"></span>
+                                </div>
+                                <div class="card mt-3">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="card-text placeholder-glow">
+                                                        <span class="placeholder rounded col-12" style="height: 10rem;"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="card-text placeholder-glow">
+                                                        <span class="placeholder rounded-circle col-2" style="height: 2rem;"></span>
+                                                        <span class="placeholder rounded col-2 ms-3"></span>
+                                                        <span class="placeholder rounded col-4 ms-3"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="card-text placeholder-glow">
+                                                        <span class="placeholder rounded-circle col-2" style="height: 2rem;"></span>
+                                                        <span class="placeholder rounded col-2 ms-3"></span>
+                                                        <span class="placeholder rounded col-4 ms-3"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="card-text placeholder-glow">
+                                                        <span class="placeholder rounded-circle col-2" style="height: 2rem;"></span>
+                                                        <span class="placeholder rounded col-2 ms-3"></span>
+                                                        <span class="placeholder rounded col-4 ms-3"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="card-text placeholder-glow">
+                                                        <span class="placeholder rounded-circle col-2" style="height: 2rem;"></span>
+                                                        <span class="placeholder rounded col-2 ms-3"></span>
+                                                        <span class="placeholder rounded col-4 ms-3"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="card-text placeholder-glow">
+                                                        <span class="placeholder rounded-circle col-2" style="height: 2rem;"></span>
+                                                        <span class="placeholder rounded col-2 ms-3"></span>
+                                                        <span class="placeholder rounded col-4 ms-3"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="card-text placeholder-glow">
+                                                        <span class="placeholder rounded-circle col-2" style="height: 2rem;"></span>
+                                                        <span class="placeholder rounded col-2 ms-3"></span>
+                                                        <span class="placeholder rounded col-4 ms-3"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
 
 
             <!-- Footer -->
@@ -1581,12 +1927,10 @@
                                     <!-- Grid column -->
                                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                                         <h6 class="text-uppercase mb-4 font-weight-bold">
-                                            Company name
+                                            Spark
                                         </h6>
                                         <p>
-                                            Here you can use rows and columns to organize your footer
-                                            content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                                            elit.
+                                            Take the first step towards financial empowerment.
                                         </p>
                                     </div>
                                     <!-- Grid column -->
@@ -1597,16 +1941,16 @@
                                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                                         <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
                                         <p>
-                                            <a class="">MDBootstrap</a>
+                                            <a class="">Spark</a>
                                         </p>
                                         <p>
-                                            <a class="">MDWordPress</a>
+                                            <a class="">SparkUI</a>
                                         </p>
                                         <p>
-                                            <a class="">BrandFlow</a>
+                                            <a class="">Portfolio</a>
                                         </p>
                                         <p>
-                                            <a class="">Bootstrap Angular</a>
+                                            <a class="">Whatsapp</a>
                                         </p>
                                     </div>
                                     <!--                              Grid column -->
@@ -1619,10 +1963,9 @@
                                     <!-- Grid column -->
                                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                                         <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-                                        <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-                                        <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
-                                        <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-                                        <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                                        <p><i class="fas fa-home mr-3"></i> Bangalore, India</p>
+                                        <p><i class="fas fa-envelope mr-3"></i> sasirs272@gmail.com</p>
+                                        <p><i class="fas fa-phone mr-3"></i> + 91 9047845338</p>
                                     </div>
                                     <!-- Grid column -->
 
@@ -1683,8 +2026,8 @@
             $(document).ready(function () {
 
 
-                // document.getElementById("tooglebtn").click();
 
+                // document.getElementById("tooglebtn").click();
 
                 $('#nav-contact-tab').on('click', function () {
                     //findAllReport('#reporttable', "pushEngine/calls/findAll");
@@ -1796,23 +2139,9 @@
                 //loadtopsectors();
                 portfolioPieChart(piedata);//for portfolio chart
                 recentHistoryChart(racentHistorydata);
-            });
-        </script>
 
 
-        <!-- For UI display  -->
-        <script>
-
-            document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("explorelink").click();
-                // Need to to SPARK-18
-                // document.getElementById("updatemodel").click();
-                // loadGroup();
-                // findAllDashbordData('#dashbordtable', "pushEngine/calls/findAll");
-
-                console.log("ready");
-
-
                 const toastTrigger = document.getElementById('liveToastBtn');
                 const toastLiveExample = document.getElementById('liveToast')
 
@@ -1824,11 +2153,18 @@
                     })
                 }
 
-                // for fetching the gainer
-                getGainers();
-                getLoosers();
-                getVolume();
-                getMostActive();
+            });
+
+
+        </script>
+
+
+        <!-- For UI display  -->
+        <script>
+
+            document.addEventListener("DOMContentLoaded", function () {
+                // document.getElementById("homepageplaceholder").style.display = "";
+                // document.getElementById("nonscripcontainer").style.display = "none";
             });
 
             var tab = 0;
@@ -1940,6 +2276,7 @@
 
             //logout
             document.getElementById("logoutBtn").addEventListener("click", function () {
+                window.location.href = "/index.html";
 
             });
 
@@ -1997,6 +2334,9 @@
 
             }
 
+            //document.getElementById("explorelink").click();
+            // document.getElementById("homepageplaceholder").style.display = "none";
+            // document.getElementById("nonscripcontainer").style.display = "";
 
         </script>
 
